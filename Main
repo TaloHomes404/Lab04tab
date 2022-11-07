@@ -1,0 +1,76 @@
+import java.util.Random;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] Tablica = new int[10];
+
+        for (int i = 0; i < Tablica.length; i++) {
+            Tablica[i] = losowanie();
+        }
+        for (int j = 0; j < Tablica.length; j++) {
+            System.out.println("Element tablicy nr: " + j + "to: " + Tablica[j]);
+        }
+
+        sumaSredniaTablic(Tablica);
+        drugiElement();
+        aleStringi();
+
+    }
+
+    public static int losowanie() {
+        Random losowa = new Random();
+        int liczba = losowa.nextInt(100);
+        liczba += 1;
+        return liczba;
+    }
+
+    public static void sumaSredniaTablic(int[] tablica) {
+        int suma = 0;
+
+        for (int i = 0; i < tablica.length; i++) {
+            suma += tablica[i];
+        }
+        System.out.println("Suma elementów tablicy wynosi: " + suma);
+        System.out.println("Srednia arytmetyczna tablicy wynosi: " + suma / tablica.length);
+    }
+
+    public static void drugiElement() {
+        int[] parzysta = new int[8]; //10 elementow
+        int[] nieparzysta = new int[9]; //11 elementów
+
+        for (int i = 0; i < parzysta.length; i++) {
+            parzysta[i] = losowanie();
+            System.out.print(" " + parzysta[i]);
+        }
+        System.out.println();
+        for (int j = 0; j < nieparzysta.length; j++) {
+            nieparzysta[j] = losowanie();
+            System.out.print(" " + nieparzysta[j]);
+        }
+        System.out.println();
+        System.out.println("  Wypisuje co drugi element tablicy parzystej: ");
+        for (int k = 1; k < parzysta.length; k = k + 2) {
+            System.out.print(parzysta[k] + " ");
+        }
+        System.out.println();
+        System.out.println("  Wypisuje co drugi element tablicy nieparzystej: ");
+        for (int l = 1; l < nieparzysta.length; l = l + 2) {
+            System.out.print(nieparzysta[l] + " ");
+        }
+    }
+
+    public static void aleStringi() {
+        String[] slowa = new String[5];
+        for (int i = 0; i < slowa.length; i++) {
+            Scanner wpisz = new Scanner(System.in);
+            System.out.println("Wpisz dowolne slowo nr: " + i);
+            slowa[i] = wpisz.nextLine();
+        }
+
+        for (int j = 0; j < slowa.length; j++) {
+            System.out.println(slowa[j].toUpperCase());
+
+        }
+    }
+}
